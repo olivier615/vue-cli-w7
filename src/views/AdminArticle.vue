@@ -58,15 +58,15 @@
               <label class="form-check-label" for="isPublic">是否啟用</label>
             </div>
             <div class="mb-3">
-              <label for="articleContent" class="form-label">內文</label>
+              <!-- <label for="articleContent" class="form-label">內文</label>
               <textarea name="" id="articleContent"
               class="form-control" v-model="article.content"
-              cols="30" rows="10"></textarea>
-              <!-- <ckeditor
+              cols="30" rows="10"></textarea> -->
+              <ckeditor
                 :editor="editor"
                 :config="editorConfig"
                 v-model="article.content"
-              ></ckeditor> -->
+              ></ckeditor>
             </div>
           </div>
 
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 let fileInput = null
 export default {
   data () {
@@ -90,11 +90,11 @@ export default {
       article: {
         tag: [],
         image: ''
+      },
+      editor: ClassicEditor,
+      editorConfig: {
+        toolbar: ['heading', 'bold', 'italic', '|', 'link']
       }
-      // editor: ClassicEditor,
-      // editorConfig: {
-      //   toolbar: ['heading', 'bold', 'italic', '|', 'link']
-      // }
     }
   },
   methods: {
